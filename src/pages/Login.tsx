@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "./components/Form";
 import Input from "./components/input";
 import Button from "./components/Button";
 import Header from "./components/Header";
 import Greetings from "./components/Greetings";
+import Loader from "./components/Loader";
 
 const Login: React.FC = () => {
+  const [loading,setLoading]=useState(true)
   return (
     <div className="h-screen w-screen flex ">
       <section className="h-full w-1/2 ">Left</section>
@@ -17,17 +19,24 @@ const Login: React.FC = () => {
           <Form className="h-[32rem] w-[32rem] rounded-md space-y-2 text-gray-600 ">
             <Input
               label="Email"
-              placeholder="Please enter your Email"
+              placeholder="Please enter your email"
               className="inputClass"
             />
-            <p>error</p>
             <Input
               label="Password"
               type={`password`}
-              placeholder="Please enter your Email"
+              placeholder="Please enter your password"
               className="inputClass"
             />
-            <Button className="buttonClass">Submit</Button>
+            <Button disabled className="buttonClass ">
+              {loading ? (
+                <div className="h-full w-full flex justify-center items-center space-x-4 ">
+                  <Loader className="animate-spin " /> <span>Loading ...</span>
+                </div>
+              ) : (
+                "Submit"
+              )}
+            </Button>
           </Form>
         </div>
       </section>

@@ -1,12 +1,13 @@
 import React from 'react'
 
 interface ButtonProps {
-  children: string;
-  className:string
+  children: any;
+    className: string
+    disabled:boolean
 }
 
-const Button: React.FC<ButtonProps> = ({ className, children }) => {
-  return <button className={className}>{children}</button>;
+const Button: React.FC<ButtonProps> = ({ className, children,...props }) => {
+  return <button className={className} {...props}>{children}</button>;
 };
 
 export default Button
