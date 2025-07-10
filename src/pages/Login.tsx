@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./components/Form";
 import Input from "./components/input";
+import Button from "./components/Button";
 
 const Login: React.FC = () => {
   return (
@@ -18,12 +19,20 @@ const Login: React.FC = () => {
           </p>
         </div>
         <div className="w-full flex justify-center">
-          <Form className="h-[32rem] w-[32rem] rounded-md ">
+          <Form className="h-[32rem] w-[32rem] rounded-md space-y-2 text-gray-600 ">
             <Input
               label="Email"
               placeholder="Please enter your Email"
-              className="border border-gray-200 h-10 w-[25rem] p-4 rounded-sm outline-none"
+              className="border border-gray-200 h-10 w-[25rem] p-4 rounded-sm outline-none focus:border focus:border-gray-400"
             />
+            <Input
+              label="Password"
+              placeholder="Please enter your Email"
+              className="border border-gray-200 h-10 w-[25rem] p-4 rounded-sm outline-none focus:border focus:border-gray-400"
+            />
+            <Button className="mt-15 border border-green-700 h-10 w-[25rem] p-4 rounded-sm text-green-700 flex justify-center items-center font-semibold cursor-pointer hover:bg-green-700 hover:text-white">
+              Submit
+            </Button>
           </Form>
         </div>
       </section>
