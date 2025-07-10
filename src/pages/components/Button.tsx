@@ -3,7 +3,7 @@ import React from 'react'
 interface ButtonProps {
   children: any;
     className: string
-    disabled:boolean
+    disabled:any
 }
 
 const Button: React.FC<ButtonProps> = ({ className, children,...props }) => {

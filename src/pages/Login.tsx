@@ -15,7 +15,7 @@ const Login: React.FC = () => {
       <section className="h-full w-1/2  flex flex-col pt-10 px-6 space-y-6 bg-gray-50">
         <Header>Login</Header>
         <Greetings />
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center ">
           <Form className="h-[32rem] w-[32rem] rounded-md space-y-2 text-gray-600 ">
             <Input
               label="Email"
@@ -28,9 +28,14 @@ const Login: React.FC = () => {
               placeholder="Please enter your password"
               className="inputClass"
             />
-            <Button disabled className="buttonClass ">
+            <Button
+              disabled={loading}
+              className={`buttonClass ${
+                loading && "!bg-gray-100 hover:!text-gray-400"
+              }`}
+            >
               {loading ? (
-                <div className="h-full w-full flex justify-center items-center space-x-4 ">
+                <div className="h-full w-full flex justify-center items-center space-x-4  ">
                   <Loader className="animate-spin " /> <span>Loading ...</span>
                 </div>
               ) : (
