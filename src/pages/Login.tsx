@@ -18,8 +18,12 @@ const Login: React.FC = () => {
           </p>
         </div>
         <div className="w-full flex justify-center">
-          <Form className="h-[32rem] w-[32rem] border border-gray-200 rounded-md shadow-xl">
-            <Input label="Email" inputclassName="border h-10 w-[25rem] rounded-sm outline-none" />
+          <Form className="h-[32rem] w-[32rem] rounded-md ">
+            <Input
+              label="Email"
+              placeholder="Please enter your Email"
+              className="border border-gray-200 h-10 w-[25rem] p-4 rounded-sm outline-none"
+            />
           </Form>
         </div>
       </section>

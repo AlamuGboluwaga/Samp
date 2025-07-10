@@ -1,14 +1,15 @@
 import React from 'react'
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  inputclassName:string;
+  className: string;
 }
-const Input: React.FC<InputProps> = ({ label,inputclassName, ...props }) => {
+
+const Input: React.FC<InputProps> = ({ label, className, ...props }) => {
   return (
-    <div className="">
+    <div className="flex flex-col space-y-2">
       <label htmlFor="">{label}</label>
-      <input className={inputclassName} {...props} />
+      <input className={className} {...props} />
     </div>
   );
 };
