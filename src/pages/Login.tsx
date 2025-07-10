@@ -5,9 +5,20 @@ import Button from "./components/Button";
 import Header from "./components/Header";
 import Greetings from "./components/Greetings";
 import Loader from "./components/Loader";
+import { useForm } from "react-hook-form";
 
 const Login: React.FC = () => {
-  const [loading,setLoading]=useState(true)
+  const [loading, setLoading] = useState(true)
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data:any) => console.log(data);
+
+  console.log(watch("example"));
   return (
     <div className="h-screen w-screen flex ">
       <section className="h-full w-1/2 ">Left</section>
@@ -16,17 +27,25 @@ const Login: React.FC = () => {
         <Header>Login</Header>
         <Greetings />
         <div className="w-full flex justify-center ">
-          <Form className="h-[32rem] w-[32rem] rounded-md space-y-2 text-gray-600 ">
+          <Form
+            handleSubmit={handleSubmit(onSubmit)}
+            className="h-[32rem] w-[32rem] rounded-md space-y-2 text-gray-600 "
+          >
             <Input
               label="Email"
               placeholder="Please enter your email"
               className="inputClass"
+              name="email"
+              register={register}
             />
             <Input
               label="Password"
               type={`password`}
               placeholder="Please enter your password"
               className="inputClass"
+              disabled
+              name="password"
+              register={register}
             />
             <Button
               disabled={loading}
