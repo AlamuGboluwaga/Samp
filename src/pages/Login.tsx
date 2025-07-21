@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import Form from "./components/Form";
-import Input from "./components/input";
+import Input from "./components/Input";
 import Button from "./components/Button";
 import Header from "./components/Header";
 import Greetings from "./components/Greetings";
 import Loader from "./components/Loader";
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Bolo from '../assets/bolo.jpeg'
-const Login: React.FC = () => {
-  const [loading, setLoading] = useState(true);
 
+const Login: React.FC = () => {
+  const[loading,setLoading]= useState(false)
+const {
+  register,
+  handleSubmit,
+  watch,
+  formState: { errors },
+} = useForm();
+const onSubmit = (data: any) => console.log(data);
+
+console.log(watch("example"));
   return (
     <div className="h-screen w-screen flex ">
       <section className="h-full w-1/2 ">
@@ -20,8 +29,8 @@ const Login: React.FC = () => {
         <Greetings />
         <div className="w-full flex justify-center ">
           <Form
-            // onSubmit={handleSubmit(onSubmit)}
-            onSubmit={() => ""}
+          onSubmit={handleSubmit(onSubmit)}
+        
             className="h-[26rem] w-[32rem] flex flex-col justify-center items-center bg-white shadow-xl rounded-md space-y-2 text-gray-600 "
           >
             <Input
