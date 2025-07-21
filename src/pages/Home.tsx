@@ -14,7 +14,7 @@ const navigate = useNavigate()
       <section className=" h-full w-full sm:h-full sm:w-full" onClick={handleClick}>
         <img src={Bolo} alt="Bolo" className="h-[90%] w-full object-fit" />
       </section>
-      <section className="h-full w-1/2 hidden  sm:block sm:h-full sm:w-full bg-amber-600">
+      <section className="h-full w-1/2 hidden  sm:block sm:h-full sm:w-full ">
       
       </section>
     </div>

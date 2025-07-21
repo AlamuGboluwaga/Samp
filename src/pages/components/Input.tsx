@@ -5,6 +5,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className: string;
   register: any;
   name: string;
+  errors: any
 }
 
 const Input: React.FC<InputProps> = ({
@@ -12,7 +13,9 @@ const Input: React.FC<InputProps> = ({
   className,
   name,
   register,
+    errors,
   ...props
+  
 }) => {
   return (
     <div className="flex flex-col space-y-2">
@@ -25,6 +28,7 @@ const Input: React.FC<InputProps> = ({
           maxLength: { value: 50, message: "Maximum length exceeded" },
         })}
         {...props}
+        {...errors}
       />
     </div>
   );

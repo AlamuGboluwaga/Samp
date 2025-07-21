@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState } from "react";
 import Form from "./components/Form";
 import Input from "./components/Input";
 import Button from "./components/Button";
@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import Bolo from '../assets/bolo.jpeg'
 
 const Login: React.FC = () => {
-  useContext
   const [loading, setLoading] = useState(false);
   const {
     register,
@@ -18,9 +17,16 @@ const Login: React.FC = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    setLoading(true);
+    console.log("Form Data:", data);
+    // Simulate async login
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
   console.log(watch());
-  
 
   return (
     <div className="h-screen w-screen flex ">
@@ -41,6 +47,7 @@ const Login: React.FC = () => {
               className="inputClass "
               name="email"
               register={register}
+              errors={errors.message}
             />
             <Input
               label="Password"
@@ -50,6 +57,7 @@ const Login: React.FC = () => {
               // disabled
               name="password"
               register={register}
+              errors={errors.message}
             />
             <Button
               disabled={loading}
