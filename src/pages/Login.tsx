@@ -38,8 +38,8 @@ console.log(watch("example"));
               placeholder="Please enter your email"
               className="inputClass"
               name="email"
-              // register={register}
-              register={""}
+              register={register}
+              
             />
             <Input
               label="Password"
@@ -48,8 +48,8 @@ console.log(watch("example"));
               className="inputClass"
               disabled
               name="password"
-              // register={register}
-              register={""}
+              register={register}
+              
             />
             <Button
               disabled={loading}
