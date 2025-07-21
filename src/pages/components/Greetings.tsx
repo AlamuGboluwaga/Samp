@@ -1,6 +1,8 @@
-import React from 'react'
+import React from "react";
 
-const Greetings = () => {
+interface GreetingsProps {}
+
+const Greetings: React.FC<GreetingsProps> = () => {
   return (
     <div className="h-14 w-full flex flex-col text-gray-500 space-y-2  ">
       <p className="font-bold text-sm">Welcome Back,</p>
@@ -9,6 +11,6 @@ const Greetings = () => {
       </p>
     </div>
   );
-}
+};
 
-export default Greetings
+export default Greetings;

@@ -5,38 +5,32 @@ import Button from "./components/Button";
 import Header from "./components/Header";
 import Greetings from "./components/Greetings";
 import Loader from "./components/Loader";
-import { useForm } from "react-hook-form";
-
+// import { useForm } from "react-hook-form";
+import Bolo from '../assets/bolo.jpeg'
 const Login: React.FC = () => {
-  const [loading, setLoading] = useState(true)
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const [loading, setLoading] = useState(true);
 
-  const onSubmit = (data:any) => console.log(data);
-
-  console.log(watch("example"));
   return (
     <div className="h-screen w-screen flex ">
-      <section className="h-full w-1/2 ">Left</section>
-
-      <section className="h-full w-1/2  flex flex-col pt-10 px-6 space-y-6 bg-gray-50">
+      <section className="h-full w-1/2 ">
+      <img src={Bolo} alt="SOHK Image" className="h-full w-full"/>
+      </section>
+      <section className="h-full w-1/2  flex flex-col py-10  px-6 space-y-16 bg-gray-50">
         <Header>Login</Header>
         <Greetings />
         <div className="w-full flex justify-center ">
           <Form
-            handleSubmit={handleSubmit(onSubmit)}
-            className="h-[32rem] w-[32rem] rounded-md space-y-2 text-gray-600 "
+            // onSubmit={handleSubmit(onSubmit)}
+            onSubmit={() => ""}
+            className="h-[26rem] w-[32rem] flex flex-col justify-center items-center bg-white shadow-xl rounded-md space-y-2 text-gray-600 "
           >
             <Input
               label="Email"
               placeholder="Please enter your email"
               className="inputClass"
               name="email"
-              register={register}
+              // register={register}
+              register={""}
             />
             <Input
               label="Password"
@@ -45,7 +39,8 @@ const Login: React.FC = () => {
               className="inputClass"
               disabled
               name="password"
-              register={register}
+              // register={register}
+              register={""}
             />
             <Button
               disabled={loading}
