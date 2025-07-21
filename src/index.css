@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 .inputClass {
-    @apply bg-white border border-gray-200 sm:h-10 sm:w-[25rem] p-4 rounded-sm outline-none focus:border focus:border-gray-400;
+    @apply h-14 w-[22rem] bg-white border border-gray-200 sm:h-10 sm:w-[25rem] p-4 rounded-sm outline-none focus:border focus:border-gray-400;
   }
   .buttonClass{
-   @apply bg-gray-100 mt-15 border border-gray-200 h-10 w-[25rem] p-4 rounded-sm text-gray-400 flex justify-center items-center font-semibold cursor-pointer hover:bg-green-700 hover:text-white
+   @apply h-14 w-[22rem] bg-gray-100 mt-15 border border-gray-200 sm:h-10 sm:w-[25rem] p-4 rounded-sm text-gray-400 flex justify-center items-center font-semibold cursor-pointer hover:bg-green-700 hover:text-white
   }
