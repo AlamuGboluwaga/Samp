@@ -1,11 +1,22 @@
 import React from "react";
 import Bolo from "../assets/bolo.jpeg";
+import { useNavigate } from "react-router-dom";
+
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
+const navigate = useNavigate()
+  const handleClick = () => {
+   navigate('/login') 
+  }
   return (
     <div className="h-screen w-screen flex justify-center items-center">
-    <img src={Bolo} alt="Bolo" className="h-screen w-screen object-cover" />
+      <section className=" h-full w-full sm:h-full sm:w-full" onClick={handleClick}>
+        <img src={Bolo} alt="Bolo" className="h-[90%] w-full object-fit" />
+      </section>
+      <section className="h-full w-1/2 hidden  sm:block sm:h-full sm:w-full bg-amber-600">
+      
+      </section>
     </div>
   );
 };

@@ -4,6 +4,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   className: string;
   register: any;
+  name: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -15,13 +16,14 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <div className="flex flex-col space-y-2">
-      <label htmlFor="">{label}</label>
+      <label htmlFor={name}>{label}</label>
       <input
+        id={name}
         className={className}
-        // {...register(name, {
-        //   required: "please fill the field",
-        //   maxLength: { value: 50, message: "maximum length exceeded" },
-        // })}
+        {...register(name, {
+          required: "Please fill the field",
+          maxLength: { value: 50, message: "Maximum length exceeded" },
+        })}
         {...props}
       />
     </div>

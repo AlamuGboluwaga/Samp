@@ -9,28 +9,36 @@ import { useForm } from "react-hook-form";
 import Bolo from '../assets/bolo.jpeg'
 
 const Login: React.FC = () => {
-  const[loading,setLoading]= useState(false)
-const {
-  register,
-  handleSubmit,
-  watch,
-  formState: { errors },
-} = useForm();
-const onSubmit = (data: any) => console.log(data);
+  const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-console.log(watch("example"));
+  const onSubmit = (data: any) => {
+    setLoading(true);
+    console.log("Form Data:", data);
+    // Simulate async login
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
+  console.log(watch("example"));
+
   return (
     <div className="h-screen w-screen flex ">
       <section className="h-full w-1/2 ">
-      <img src={Bolo} alt="SOHK Image" className="h-full w-full"/>
+        <img src={Bolo} alt="SOHK Image" className="h-full w-full" />
       </section>
       <section className="h-full w-1/2  flex flex-col py-10  px-6 space-y-16 bg-gray-50">
         <Header>Login</Header>
         <Greetings />
         <div className="w-full flex justify-center ">
           <Form
-          onSubmit={handleSubmit(onSubmit)}
-        
+            onSubmit={handleSubmit(onSubmit)}
             className="h-[26rem] w-[32rem] flex flex-col justify-center items-center bg-white shadow-xl rounded-md space-y-2 text-gray-600 "
           >
             <Input
@@ -39,7 +47,6 @@ console.log(watch("example"));
               className="inputClass"
               name="email"
               register={register}
-              
             />
             <Input
               label="Password"
@@ -49,7 +56,6 @@ console.log(watch("example"));
               disabled
               name="password"
               register={register}
-              
             />
             <Button
               disabled={loading}
