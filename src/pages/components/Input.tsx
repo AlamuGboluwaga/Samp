@@ -5,7 +5,8 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className: string;
   register: any;
   name: string;
-  errors: any
+  errors: any;
+  validationRules?: object;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -13,9 +14,9 @@ const Input: React.FC<InputProps> = ({
   className,
   name,
   register,
-    errors,
+  errors,
+  validationRules,
   ...props
-  
 }) => {
   return (
     <div className="flex flex-col space-y-2">
@@ -23,13 +24,12 @@ const Input: React.FC<InputProps> = ({
       <input
         id={name}
         className={className}
-        {...register(name, {
-          required: "Please fill the field",
-          maxLength: { value: 50, message: "Maximum length exceeded" },
-        })}
+        {...register(name, validationRules)}
         {...props}
-        {...errors}
       />
+      {errors && (
+        <span className="text-red-700 text-xs">{errors.message}</span>
+      )}
     </div>
   );
 };

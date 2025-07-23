@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Greetings from "./components/Greetings";
 import Loader from "./components/Loader";
 import { useForm } from "react-hook-form";
-import Bolo from '../assets/bolo.jpeg'
+import Bolo from "../assets/bolo.jpeg";
 
 const Login: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -14,16 +14,17 @@ const Login: React.FC = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     setLoading(true);
     console.log("Form Data:", data);
-    // Simulate async login
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    // Simulate async login process
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setLoading(false);
+    reset();
   };
 
   console.log(watch());
@@ -47,8 +48,16 @@ const Login: React.FC = () => {
               className="inputClass "
               name="email"
               register={register}
-              errors={errors.message}
+              errors={errors.email}
+              validationRules={{
+                required: "Email is required",
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Invalid email address",
+                },
+              }}
             />
+
             <Input
               label="Password"
               type={`password`}
@@ -57,7 +66,14 @@ const Login: React.FC = () => {
               // disabled
               name="password"
               register={register}
-              errors={errors.message}
+              errors={errors.password}
+              validationRules={{
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+              }}
             />
             <Button
               disabled={loading}
