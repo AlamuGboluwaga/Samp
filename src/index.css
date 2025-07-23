@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .labelClass{
-  @apply text-lg sm:text-3xl lg:text-xl ;
+  @apply text-lg sm:text-3xl lg:text-xl text-gray-400 ;
 }
 .inputClass {
     @apply h-14 w-[19rem]  bg-white border border-gray-200 sm:h-[6rem] sm:w-[36rem] sm:rounded-2xl p-4 rounded-sm outline-none focus:border focus:border-gray-400 lg:h-12 lg:w-[26rem] lg:text-lg  lg:rounded-md ;

@@ -8,6 +8,7 @@ import Loader from "./components/Loader";
 import { useForm } from "react-hook-form";
 import Bolo from "../assets/bolo.jpeg";
 
+
 const Login: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const {
