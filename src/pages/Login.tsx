@@ -31,19 +31,20 @@ const Login: React.FC = () => {
 
   return (
     <div className="h-screen w-screen flex ">
-      <section className="h-full w-1/2 hidden sm:block">
+      <section className="h-full w-1/2 hidden sm:hodden lg:block ">
         <img src={Bolo} alt="SOHK Image" className="h-full w-full" />
       </section>
-      <section className="h-full w-full py-10 space-y-10 sm:h-full    sm:w-1/2 flex flex-col sm:py-10  px-6 sm:space-y-16 bg-gray-50">
+      <section className="h-full w-full py-10 space-y-10 sm:h-full sm:w-full flex flex-col sm:py-10  px-6 sm:space-y-16 bg-gray-50 lg:h-full lg:w-1/2 lg:text-sm  ">
         <Header>Login</Header>
         <Greetings />
         <div className="w-full flex justify-center ">
           <Form
             onSubmit={handleSubmit(onSubmit)}
-            className="h-[25rem] sm:h-[26rem] sm:w-[32rem] flex flex-col justify-center items-center  sm:shadow-xl rounded-md space-y-2 text-gray-600 "
+            className="h-[25rem] sm:h-[50rem] sm:w-[40rem] lg:h-[25rem] lg:w-[35rem] flex flex-col justify-center items-center  sm:shadow-xl rounded-md space-y-2 text-gray-600 "
           >
             <Input
               label="Email"
+              labelClass="labelClass"
               placeholder="Please enter your email"
               className="inputClass "
               name="email"
@@ -57,13 +58,12 @@ const Login: React.FC = () => {
                 },
               }}
             />
-
             <Input
               label="Password"
+              labelClass="labelClass"
               type={`password`}
               placeholder="Please enter your password"
               className="inputClass"
-              // disabled
               name="password"
               register={register}
               errors={errors.password}

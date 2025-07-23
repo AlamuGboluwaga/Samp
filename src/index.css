@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+.labelClass{
+  @apply text-lg sm:text-3xl lg:text-xl ;
+}
 .inputClass {
-    @apply h-14 w-[22rem] bg-white border border-gray-200 sm:h-10 sm:w-[25rem] p-4 rounded-sm outline-none focus:border focus:border-gray-400;
+    @apply h-14 w-[22rem] bg-white border border-gray-200 sm:h-[6rem] sm:w-[36rem] sm:rounded-2xl p-4 rounded-sm outline-none focus:border focus:border-gray-400 lg:h-12 lg:w-[26rem] lg:text-lg  lg:rounded-md ;
   }
   .buttonClass{
-   @apply h-14 w-[22rem] bg-gray-100 mt-15 border border-gray-200 sm:h-10 sm:w-[25rem] p-4 rounded-sm text-gray-400 flex justify-center items-center font-semibold cursor-pointer hover:bg-green-700 hover:text-white
+   @apply h-14 w-[22rem] bg-gray-100 mt-15 border border-gray-200 sm:h-[5.4rem] sm:text-2xl sm:w-[35rem] sm:rounded-2xl p-4 rounded-sm text-gray-400 flex justify-center items-center font-semibold cursor-pointer hover:bg-green-700 hover:text-white lg:h-12 lg:w-[22rem] lg:text-lg  lg:rounded-md 
   }
